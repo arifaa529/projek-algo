@@ -42,6 +42,10 @@ def login_sistem(role_target):
         ])
         df_users.to_csv("users.csv", index=False)
 
+    # Konversi ke string & hilangkan spasi untuk mencegah error pencocokan tipe data
+    df_users["password"] = df_users["password"].astype(str).str.strip()
+    df_users["role"] = df_users["role"].astype(str).str.strip()
+
     print("\n" + "=" * 45)
     print(f"         LOGIN ({label_role.upper()})         ")
     print("=" * 45)
@@ -406,7 +410,13 @@ def kelola_layanan():
         try:
             df_layanan = pd.read_csv("layanan.csv")
         except FileNotFoundError:
-            df_layanan = pd.DataFrame(columns=["ID_Paket", "Nama_Paket", "Jenis_Kendaraan", "Harga"])
+            df_layanan = pd.DataFrame([
+                {"ID_Paket": "P01", "Nama_Paket": "Cuci Motor Standard", "Jenis_Kendaraan": "Motor", "Harga": 15000},
+                {"ID_Paket": "P02", "Nama_Paket": "Cuci Motor Express", "Jenis_Kendaraan": "Motor", "Harga": 25000},
+                {"ID_Paket": "P03", "Nama_Paket": "Cuci Mobil Regular", "Jenis_Kendaraan": "Mobil", "Harga": 40000},
+                {"ID_Paket": "P04", "Nama_Paket": "Cuci Mobil Premium Wax", "Jenis_Kendaraan": "Mobil", "Harga": 65000}
+            ])
+            df_layanan.to_csv("layanan.csv", index=False)
 
         if pilihan == "1":
             print("\n" + "=" * 55)
@@ -498,4 +508,8 @@ def analisis_paket_terlaris():
     counts.index = range(1, len(counts) + 1)
     print(counts.to_string())
 
+
+# ==========================================
+# EKSEKUSI UTAMA (TANPA MAIN)
+# ==========================================
 menu_awal()
