@@ -1,7 +1,7 @@
 
 import pandas as pd
 
-
+# ======================alip===============       
 # ==========================================
 # 1. MENU AWAL (LOGIN KASIR, PEMILIK, KELUAR)
 # ==========================================
@@ -27,7 +27,7 @@ def menu_awal():
         else:
             print("\n[Error] Pilihan tidak valid, harap masukkan angka yang benar.")
 
-
+# ================dinda========================
 # ==========================================
 # 2. PROSES LOGIN (PASSWORD BERULANG)
 # ==========================================
@@ -168,7 +168,7 @@ def tampilkan_matriks_status():
             print(f"  - Status '{st:<13}': {jumlah} unit")
 
     print("=" * 55)
-
+# ===========================yusuf===============================
 
 def tambah_antrean():
     print("\n--- TAMBAH ANTREAN BARU ---")
@@ -367,7 +367,7 @@ def proses_pembayaran():
 
     print(f"[Berhasil] Transaksi {id_trx} berhasil disimpan!")
 
-
+# ===============================alip=========================
 def batal_antrean():
     tampilkan_antrean_aktif()
 
@@ -489,7 +489,7 @@ def tampil_laporan_keuangan():
 
     print("=" * 60)
 
-
+# ===================arifa==========================
 def kelola_layanan():
     while True:
         print("\n--- MANAJEMEN TARIF & PAKET CUCI ---")
